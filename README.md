@@ -77,6 +77,9 @@ For chapter specific details read the _README.MD_ inside the chapters.
 
 **_Pull Images_**
 
+- To pull an image use `docker pull URL_OF_IMAGE`
+  -- Example: `docker pull amit9815/shared:python-rng`
+
 ### Notes
 
 1. `run` starts an image in attached mode **by default**
