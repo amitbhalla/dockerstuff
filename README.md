@@ -32,6 +32,7 @@ For chapter specific details read the _README.MD_ inside the chapters.
 - `docker logs -f <coontainer-name>` attaches to terminal and starts listening to logs
 - `docker run -it <image-id>` attached an interactive terminal. Used for apps that want inputs from CLI. [See note 3]
 - `docker run --rm <image-id>` this will remove the container when it stops automatically.
+- `docker run --name <NAME-HERE>` will created a custom named container
 
 #### Docker **START** -> Starts an existing container
 
@@ -48,12 +49,16 @@ For chapter specific details read the _README.MD_ inside the chapters.
 - `docker cp <container-name>:SOURCE_PATH DEST_PATH` Will bring files from docker container to the local folder
   - Example: `docker cp Some_Container_Name:/FolderInsideDocker SomeFolder` will bring content of `FolderInsideDocker` to `SomeFolder` in your project
 
+---
+
 ### Managing **Images**
 
+- `docker build .` builds an image based on the `Dockerfile` in that folder
 - `docker images` **Shows** all the images on your system
 - `docker rmi <image-id1> <image-id2>` **Removes** the images whoes ids are passed. [See note 6]
 - `docker image prune` **Removes** all images which have no containers.
 - `docker image inspect <image-id>` Lets you **_inspect_** various details about an image
+- `docker build -t NAME:TAG .` builds an image with a customer `name` and `tag`
 
 ### Notes
 
@@ -63,6 +68,7 @@ For chapter specific details read the _README.MD_ inside the chapters.
 4. `-t` is not needed when using **START**, only needed for **RUN**
 5. If a container is running this will not work. Make sure to use `docker stop <container-name>` before using rm.
 6. An image can only be deleted if there are no containers on that image (irrspective of it running or in a stopped state)
+7. Images use a special convention for names which is `name:tag` where `name` is name of the master and `tag` is used for versioning.
 
 ---
 
