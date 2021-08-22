@@ -44,9 +44,9 @@ For chapter specific details read the _README.MD_ inside the chapters.
 #### Container specific commands
 
 - `docker cp SOURCE_PATH <container-name>:DEST_PATH` Copies the content from user machine to a container
-  -- Example: `docker cp SomeFolder/. Some_Container_Name:/FolderInsideDocker` will copy all the `SomeFolder` and all its content to a new folder called `FolderInsideDocker` which will be inside the last `WORKDIR`
+  - Example: `docker cp SomeFolder/. Some_Container_Name:/FolderInsideDocker` will copy all the `SomeFolder` and all its content to a new folder called `FolderInsideDocker` which will be inside the last `WORKDIR`
 - `docker cp <container-name>:SOURCE_PATH DEST_PATH` Will bring files from docker container to the local folder
-  -- Example: `docker cp Some_Container_Name:/FolderInsideDocker SomeFolder` will bring content of `FolderInsideDocker` to `SomeFolder` in your project
+  - Example: `docker cp Some_Container_Name:/FolderInsideDocker SomeFolder` will bring content of `FolderInsideDocker` to `SomeFolder` in your project
 
 ### Managing **Images**
 
