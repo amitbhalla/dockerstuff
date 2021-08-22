@@ -18,8 +18,10 @@ For chapter specific details read the _README.MD_ inside the chapters.
 
 ### Managing **Containers**
 
-- `docker ps` Shows all running containers
-- `docker ps -a` Shows all containers (incl. the stopped containers)
+- `docker ps` **Shows** all running containers
+- `docker ps -a` **Shows** all containers (incl. the stopped containers)
+- `docker rm <container-name1> <container-name2>` **Removes** containers whoes names are passed. [See note 5]
+- `docker container prune` **Removes** all stopped containers.
 
 #### Docker **RUN**
 
@@ -29,6 +31,7 @@ For chapter specific details read the _README.MD_ inside the chapters.
 - `docker logs <container-name>` Shows past logs of a container **[Happens only one time]**
 - `docker logs -f <coontainer-name>` attaches to terminal and starts listening to logs
 - `docker run -it <image-id>` attached an interactive terminal. Used for apps that want inputs from CLI. [See note 3]
+- `docker run --rm <image-id>` this will remove the container when it stops automatically.
 
 #### Docker **START**
 
@@ -38,12 +41,20 @@ For chapter specific details read the _README.MD_ inside the chapters.
 - `docker stop <container-name>` stops a running container
 - `docker start -ai <container-name>` allows listening to CLI inputs. Needs -a to ensure its attached. [See note 4].
 
+### Managing **Images**
+
+- `docker images` **Shows** all the images on your system
+- `docker rmi <image-id1> <image-id2>` **Removes** the images whoes ids are passed. [See note 6]
+- `docker image prune` **Removes** all images which have no containers.
+
 ### Notes
 
 1. `run` starts an image in attached mode **by default**
 2. `start` runs an image in detached mode **by default**
 3. By Default docker run is not listening to inputs from CLI even in attached mode. We need `-it` flags to enable that.
 4. `-t` is not needed when using **START**, only needed for **RUN**
+5. If a container is running this will not work. Make sure to use `docker stop <container-name>` before using rm.
+6. An image can only be deleted if there are no containers on that image (irrspective of it running or in a stopped state)
 
 ---
 
@@ -54,14 +65,6 @@ For chapter specific details read the _README.MD_ inside the chapters.
 - Example `docker run -p 8000:80 <image-id>` will map `8000` port of your system with `80` port inside docker
 
 ### Prune
-
-#### Prune container
-
-- `docker container prune`
-
-#### Prune images
-
-- `docker image prune`
 
 #### Prune system
 
