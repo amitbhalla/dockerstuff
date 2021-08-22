@@ -1,5 +1,8 @@
 # Commands
 
+For chapter specific details read the *README.MD* inside the chapters.
+
+
 ## Basic Workflow
 1. Build an image based on Dockerfile `docker build .`
 2. Once an image is built, use `docker run <id>` to run a container from that image
@@ -11,7 +14,7 @@
 ## Misc Commands
 
 ### Mapping Ports
-- Example `docker run -p 3000:80 <id>` will map `3000` port of your system with `80` port inside docker
+- Example `docker run -p 8000:80 <id>` will map `8000` port of your system with `80` port inside docker
 
 ### Prune
 #### Prune container
