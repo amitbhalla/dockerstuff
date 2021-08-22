@@ -60,6 +60,23 @@ For chapter specific details read the _README.MD_ inside the chapters.
 - `docker image inspect <image-id>` Lets you **_inspect_** various details about an image
 - `docker build -t NAME:TAG .` builds an image with a customer `name` and `tag`
 
+#### Sharing docker images
+
+**_PUSH Images_**
+
+- Create a repository on hub.docker.com example `amit9815/shared` where `amit9815` is the id and `shared` is the repo name.
+- Login to docker in your CLI (One time task)
+  - Use `docker login` to login
+- Build an image and tag it with the repo and name it
+  - Example: Build a new `docker -t amit9815/shared:SOME_TAG .`
+  - Example: ReTag an existing image `docker tag OLD_NAME:OLD_TAG amit9815/shared:NEW_TAG`
+- Push to docker
+  - Push to docker `docker push amit9815/shared:NEW_TAG`
+
+![Pushed image](https://github.com/amitbhalla/dockerstuff/blob/main/media/01-DockerPush.png?raw=true)
+
+**_Pull Images_**
+
 ### Notes
 
 1. `run` starts an image in attached mode **by default**
