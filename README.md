@@ -98,6 +98,7 @@ For chapter specific details read the _README.MD_ inside the chapters.
 - **Listing Volumes** - `docker volume ls` will let you use anonymous volumes while the container is still running
 - **Envoirnment Variables** - `docker run --env VAR:VAL` can chan ENV variables on the fly. You can also use `-e` instead of `-env`. And you can use multiple `-e` flags, same as `-v` to define multiple env variables.
 - **Envoirnment Variables** - `docker --env-file ./.env` to use .env file.
+- Use `host.docker.internal` to replace `localhost` or `127.0.0.1` to make internal connections work
 
 ### Prune
 
