@@ -14,6 +14,7 @@
 12. Linking a bount mount requires `-v` **twice**. See **Example 02**.
 13. This will crash and you will have to remove `-d` and check `docker logs feedback-app` which will say `Express` is missing.
 14. This happens because mounting the local folder (which doesn't have dependencies) will override the /app created by Dockerfile during image creation
+15. We will use a 3rd volume to seperate out node packages into an anonymous mount. See **Example 03**.
 
 ## Examples 01
 
@@ -33,6 +34,17 @@
   - `--name feedback-app` name of the container
   - `-v feedback:/app/feedback` maps the feedback folder on host system with /app/feedback folder inside the container
   - `-v "/Users/bhallaamit/Desktop/docker/03:/app"` Full absolute path, followed by a `:` then the path inside the container. Use quotes if there are spaces in path.
+
+## Example 03
+
+- `docker run -d -p 8000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/bhallaamit/Desktop/docker/03:/app" -v /app/node_modules feedback-node`
+  - `-d` to run in detached mode
+  - `-p 8000:80` maps 8000 port of host machine with 80 port of docker machine
+  - `--rm` will remove the container when it shuts down
+  - `--name feedback-app` name of the container
+  - `-v feedback:/app/feedback` maps the feedback folder on host system with /app/feedback folder inside the container
+  - `-v "/Users/bhallaamit/Desktop/docker/03:/app"` Full absolute path, followed by a `:` then the path inside the container. Use quotes if there are spaces in path.
+  - `-v /app/node_modules` will preserve the node_modules dir created with the image when the volume gets mounted.
 
 ## Changelog
 
