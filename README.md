@@ -94,10 +94,10 @@ For chapter specific details read the _README.MD_ inside the chapters.
 
 ## Misc Commands
 
-### Mapping Ports
-
-- Example `docker run -p 8000:80 <image-id>` will map `8000` port of your system with `80` port inside docker
-- `docker volume ls` will let you use anonymous volumes while the container is still running
+- **Mapping Ports** - Example `docker run -p 8000:80 <image-id>` will map `8000` port of your system with `80` port inside docker
+- **Listing Volumes** - `docker volume ls` will let you use anonymous volumes while the container is still running
+- **Envoirnment Variables** - `docker run --env VAR:VAL` can chan ENV variables on the fly. You can also use `-e` instead of `-env`. And you can use multiple `-e` flags, same as `-v` to define multiple env variables.
+- **Envoirnment Variables** - `docker --env-file ./.env` to use .env file.
 
 ### Prune
 
@@ -108,7 +108,3 @@ For chapter specific details read the _README.MD_ inside the chapters.
 #### Prune volume
 
 - `docker volume prune`
-
----
-
-# Docker Data Management
