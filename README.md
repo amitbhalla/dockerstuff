@@ -97,6 +97,7 @@ For chapter specific details read the _README.MD_ inside the chapters.
 ### Mapping Ports
 
 - Example `docker run -p 8000:80 <image-id>` will map `8000` port of your system with `80` port inside docker
+- `docker volume ls` will let you use anonymous volumes while the container is still running
 
 ### Prune
 
