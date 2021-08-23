@@ -15,6 +15,7 @@
 13. This will crash and you will have to remove `-d` and check `docker logs feedback-app` which will say `Express` is missing.
 14. This happens because mounting the local folder (which doesn't have dependencies) will override the /app created by Dockerfile during image creation
 15. We will use a 3rd volume to seperate out node packages into an anonymous mount. See **Example 03**.
+16. You can use `:ro` at the end of a bound to make it read-only for docker. i.e. `-v "/Users/bhallaamit/Desktop/docker/03:/app:ro"` will make this read-only for Docker
 
 ## Examples 01
 
