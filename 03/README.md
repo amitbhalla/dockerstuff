@@ -1,4 +1,8 @@
-# How to run
+# Managing Data & Working with Volumes
+
+---
+
+## How to run
 
 1. Create the Dockerfile
 2. Build an image based on Dockerfile `docker build -t feedback-node .`
@@ -17,7 +21,7 @@
 15. We will use a 3rd volume to seperate out node packages into an anonymous mount. See **Example 03**.
 16. You can use `:ro` at the end of a bound to make it read-only for docker. i.e. `-v "/Users/bhallaamit/Desktop/docker/03:/app:ro"` will make this read-only for Docker
 
-## Examples 01
+### Examples 01
 
 - `docker run -d -p 8000:80 --rm --name feedback-app -v feedback:/app/feedback feedback-node`
   - `-d` to run in detached mode
@@ -26,7 +30,7 @@
   - `--name feedback-app` name of the container
   - `-v feedback:/app/feedback` maps the feedback folder on host system with /app/feedback folder inside the container
 
-## Example 02
+### Example 02
 
 - `docker run -d -p 8000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/bhallaamit/Desktop/docker/03:/app" feedback-node`
   - `-d` to run in detached mode
@@ -36,7 +40,7 @@
   - `-v feedback:/app/feedback` maps the feedback folder on host system with /app/feedback folder inside the container
   - `-v "/Users/bhallaamit/Desktop/docker/03:/app"` Full absolute path, followed by a `:` then the path inside the container. Use quotes if there are spaces in path.
 
-## Example 03
+### Example 03
 
 - `docker run -d -p 8000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/bhallaamit/Desktop/docker/03:/app" -v /app/node_modules feedback-node`
   - `-d` to run in detached mode
@@ -47,7 +51,7 @@
   - `-v "/Users/bhallaamit/Desktop/docker/03:/app"` Full absolute path, followed by a `:` then the path inside the container. Use quotes if there are spaces in path.
   - `-v /app/node_modules` will preserve the node_modules dir created with the image when the volume gets mounted.
 
-## Changelog
+### Changelog
 
 1. Added `VOLUME [ "/app/feedback" ]` in Dockerfile to create a persistent volume.
 2. Added changes to `server.js` as the `rename` method of node doesn't work across devices. Error: `(node:1) UnhandledPromiseRejectionWarning: Error: EXDEV: cross-device link not permitted, rename '/app/temp/awesome.txt' -> '/app/feedback/awesome.txt'` solution, see changes in `server.js` of the commit.
