@@ -105,6 +105,10 @@ For chapter specific details read the _README.MD_ inside the chapters.
 
 - `docker system prune -a`
 
+#### Prune volume
+
+- `docker volume prune`
+
 ---
 
 # Docker Data Management
