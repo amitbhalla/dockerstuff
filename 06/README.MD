@@ -11,3 +11,11 @@
 ---
 
 ## Extra
+
+1. `docker-compose run npm init`
+
+   - `run` will allow you to send commands via docker-compose
+   - `npm` is the name of the service in yaml
+   - `init` is the command after the enterypoint
+
+2. You can also use `docker-compose run --rm npm init`
