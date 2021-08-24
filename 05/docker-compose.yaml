@@ -7,11 +7,7 @@ services:
       - data:/data/db
     env_file:
       - ./env/mongo.env
-    # environment:
-    #   MONGO_INITDB_ROOT_USERNAME: max
-    #   MONGO_INITDB_ROOT_PASSWORD: secret
-    # networks:
-    #   - goals-net
+
   backend:
     build: ./backend
     ports:
@@ -25,7 +21,16 @@ services:
     depends_on:
       - mongodb
 
-  # frontend:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+    depends_on:
+      - backend
+    stdin_open: true
+    tty: true
 
 # Use below when adding named volumes
 volumes:
