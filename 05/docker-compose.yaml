@@ -12,10 +12,22 @@ services:
     #   MONGO_INITDB_ROOT_PASSWORD: secret
     # networks:
     #   - goals-net
-  # backend:
+  backend:
+    build: ./backend
+    ports:
+      - "80:80"
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
 
   # frontend:
 
 # Use below when adding named volumes
 volumes:
   data:
+  logs:
