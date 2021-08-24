@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: "mongo"
+    volumes:
+      - data:/data/db
+    env_file:
+      - ./env/mongo.env
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: max
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+    # networks:
+    #   - goals-net
+  # backend:
+
+  # frontend:
+
+# Use below when adding named volumes
+volumes:
+  data:
