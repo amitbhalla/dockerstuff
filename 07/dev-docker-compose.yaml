@@ -2,10 +2,7 @@ version: "3.8"
 
 services:
   server:
-    # image: "nginx:stable-alpine"
-    build:
-      context: .
-      dockerfile: dockerfiles/nginx.dockerfile
+    image: "nginx:stable-alpine"
     ports:
       - "8000:80"
     volumes:
@@ -14,11 +11,10 @@ services:
     depends_on:
       - php
       - mysql
-
   php:
     build:
-      context: .
-      dockerfile: dockerfiles/php.dockerfile
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
     volumes:
       - ./src:/var/www/html:delegated
 
@@ -29,15 +25,15 @@ services:
 
   composer:
     build:
-      context: .
-      dockerfile: dockerfiles/composer.dockerfile
+      context: ./dockerfiles
+      dockerfile: composer.dockerfile
     volumes:
       - ./src:/var/www/html
 
   artisan:
     build:
-      context: .
-      dockerfile: dockerfiles/php.dockerfile
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
     volumes:
       - ./src:/var/www/html
     entrypoint: ["php", "/var/www/html/artisan"]

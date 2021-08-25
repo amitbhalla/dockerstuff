@@ -10,3 +10,8 @@
 4. `docker-compose up -d server php mysql`
 5. `docker-compose down`
 6. `docker-compose up -d --build server` We have made server depends_on php and mysql in docker-compose.yaml.
+
+---
+
+1. After building all 6 containers do the following
+2. `docker-compose run --rm artisan migrate`
